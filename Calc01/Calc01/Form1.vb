@@ -43,7 +43,7 @@
   Private Const ButtonText = "789+C456-R123*M0±./="
   Private Const ButtonX = 5
   Private Const ButtonY = 4
-  Private Button(ButtonX * ButtonY - 1) As Button
+  Private Button(ButtonX * ButtonY - 1) As MyButton
 
   Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     Me.Text = Application.ProductName
@@ -51,6 +51,7 @@
     Me.MinimumSize = New Drawing.Size(260, 260)
     Me.Size = My.Settings.Size
     ShowMenu = My.Settings.ShowMenu
+    LabelMain.Font = My.Settings.FontValue
 
     If Me.Left < Screen.GetWorkingArea(Me).Left Or
        Me.Left >= Screen.GetWorkingArea(Me).Right Then
@@ -65,8 +66,9 @@
     For i = 0 To ButtonY - 1
       For j = 0 To ButtonX - 1
         Dim k = i * ButtonX + j
-        Button(k) = New Button
+        Button(k) = New MyButton
         Button(k).Text = Mid(ButtonText, k + 1, 1)
+        Button(k).Font = My.Settings.FontButton
         AddHandler Button(k).Click, AddressOf Button_Click
         ToolStripContainer1.ContentPanel.Controls.Add(Button(k))
       Next
@@ -105,12 +107,6 @@
     IsNewValue = True
     Operation = Operations.None
   End Sub
-
-
-
-
-
-
 
   Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
     If e.Alt Then MenuStrip1.Visible = True
@@ -171,7 +167,6 @@
   Private Overloads Sub Button_Click(sender As Object, e As EventArgs)
     Button_Click(CType(sender, Button).Text)
   End Sub
-
 
   Private Overloads Sub Button_Click(c As Char)
     c = UCase(c)
@@ -262,6 +257,8 @@
     Me.WindowState = FormWindowState.Normal
     My.Settings.Location = Me.Location
     My.Settings.Size = Me.Size
+    My.Settings.FontValue = LabelMain.Font
+    My.Settings.FontButton = Button(0).Font
     With FontDialog1
       .AllowVerticalFonts = False
       .ScriptsOnly = True

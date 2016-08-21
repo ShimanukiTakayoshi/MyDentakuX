@@ -11,5 +11,11 @@
     <Setting Name="Size" Type="System.Drawing.Size" Scope="User">
       <Value Profile="(Default)">300, 100</Value>
     </Setting>
+    <Setting Name="FontValue" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">MS UI Gothic, 20.25pt</Value>
+    </Setting>
+    <Setting Name="FontButton" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">MS UI Gothic, 20.25pt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

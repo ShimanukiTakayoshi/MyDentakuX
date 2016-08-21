@@ -94,6 +94,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="MyButton.Designer.vb">
+      <DependentUpon>MyButton.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MyButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyLabel.Designer.vb">
+      <DependentUpon>MyLabel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MyLabel.vb">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -104,6 +116,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyLabel.resx">
+      <DependentUpon>MyLabel.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
