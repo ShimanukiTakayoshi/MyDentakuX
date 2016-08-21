@@ -262,6 +262,28 @@
     Me.WindowState = FormWindowState.Normal
     My.Settings.Location = Me.Location
     My.Settings.Size = Me.Size
+    With FontDialog1
+      .AllowVerticalFonts = False
+      .ScriptsOnly = True
+      .ShowEffects = False
+    End With
+  End Sub
+
+  Private Sub ToolStripMenuItemSettingFontValue_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSettingFontValue.Click
+    LabelMain.Font = SetFont(LabelMain.Font)
+  End Sub
+
+  Private Function SetFont(target As Font) As Font
+    FontDialog1.Font = target
+    If FontDialog1.ShowDialog Then target = FontDialog1.Font
+    Return target
+  End Function
+
+  Private Sub ToolStripMenuItemSettingFontButton_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSettingFontButton.Click
+    Dim f = SetFont(Button(0).Font)
+    For i = 0 To ButtonX * ButtonY - 1
+      Button(i).Font = f
+    Next
   End Sub
 
   Protected Overrides Function ProcessDialogKey(keyData As Keys) As Boolean

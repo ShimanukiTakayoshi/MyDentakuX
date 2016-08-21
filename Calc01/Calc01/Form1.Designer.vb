@@ -33,6 +33,10 @@ Partial Class Form1
     Me.ToolStripMenuItemHelpReadme = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemHelpWeb = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemHelpVersion = New System.Windows.Forms.ToolStripMenuItem()
+    Me.FontDialog1 = New System.Windows.Forms.FontDialog()
+    Me.ToolStripMenuItemSettingFont = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingFontValue = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingFontButton = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripContainer1.ContentPanel.SuspendLayout()
     Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
     Me.ToolStripContainer1.SuspendLayout()
@@ -95,7 +99,7 @@ Partial Class Form1
     '
     'ToolStripMenuItemSetting
     '
-    Me.ToolStripMenuItemSetting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemSettingShowMenu})
+    Me.ToolStripMenuItemSetting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemSettingShowMenu, Me.ToolStripMenuItemSettingFont})
     Me.ToolStripMenuItemSetting.Name = "ToolStripMenuItemSetting"
     Me.ToolStripMenuItemSetting.Size = New System.Drawing.Size(57, 20)
     Me.ToolStripMenuItemSetting.Text = "設定(&S)"
@@ -131,13 +135,31 @@ Partial Class Form1
     Me.ToolStripMenuItemHelpVersion.Size = New System.Drawing.Size(182, 22)
     Me.ToolStripMenuItemHelpVersion.Text = "バージョン情報(&V)"
     '
+    'ToolStripMenuItemSettingFont
+    '
+    Me.ToolStripMenuItemSettingFont.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemSettingFontValue, Me.ToolStripMenuItemSettingFontButton})
+    Me.ToolStripMenuItemSettingFont.Name = "ToolStripMenuItemSettingFont"
+    Me.ToolStripMenuItemSettingFont.Size = New System.Drawing.Size(190, 22)
+    Me.ToolStripMenuItemSettingFont.Text = "フォント(&F)"
+    '
+    'ToolStripMenuItemSettingFontValue
+    '
+    Me.ToolStripMenuItemSettingFontValue.Name = "ToolStripMenuItemSettingFontValue"
+    Me.ToolStripMenuItemSettingFontValue.Size = New System.Drawing.Size(152, 22)
+    Me.ToolStripMenuItemSettingFontValue.Text = "値表示(&V)"
+    '
+    'ToolStripMenuItemSettingFontButton
+    '
+    Me.ToolStripMenuItemSettingFontButton.Name = "ToolStripMenuItemSettingFontButton"
+    Me.ToolStripMenuItemSettingFontButton.Size = New System.Drawing.Size(152, 22)
+    Me.ToolStripMenuItemSettingFontButton.Text = "ボタン(&B)"
+    '
     'Form1
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
     Me.ClientSize = New System.Drawing.Size(284, 261)
     Me.Controls.Add(Me.ToolStripContainer1)
-    Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
     Me.MainMenuStrip = Me.MenuStrip1
     Me.Name = "Form1"
     Me.Text = "Form1"
@@ -163,4 +185,8 @@ Partial Class Form1
   Friend WithEvents ToolStripMenuItemHelpWeb As ToolStripMenuItem
   Friend WithEvents ToolStripMenuItemHelpVersion As ToolStripMenuItem
   Friend WithEvents LabelMain As Label
+  Friend WithEvents FontDialog1 As FontDialog
+  Friend WithEvents ToolStripMenuItemSettingFont As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemSettingFontValue As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemSettingFontButton As ToolStripMenuItem
 End Class
