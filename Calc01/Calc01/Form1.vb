@@ -40,28 +40,64 @@
 
   Private IsNewValue As Boolean
   Private Memory As Double = 0
+  Private Const ButtonText = "789+C456-R123*M0±./="
+  Private Const ButtonX = 5
+  Private Const ButtonY = 4
+  Private Button(ButtonX * ButtonY - 1) As Button
 
   Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     Me.Text = Application.ProductName
     Me.KeyPreview = True
-    'Me.MinimumSize = New Drawing.Size(300, 100)
-    'Me.Size = My.Settings.Size
-    'ShowMenu = My.Settings.ShowMenu
-    ShowMenu = True
-    ToolStripMenuItemSetting.Visible = False
+    Me.MinimumSize = New Drawing.Size(260, 260)
+    Me.Size = My.Settings.Size
+    ShowMenu = My.Settings.ShowMenu
 
-    Me.Location = My.Settings.Location
-    If Me.Left < Screen.GetWorkingArea(Me).Left OrElse
+    If Me.Left < Screen.GetWorkingArea(Me).Left Or
        Me.Left >= Screen.GetWorkingArea(Me).Right Then
       Me.Left = 100
     End If
-    If Me.Top < Screen.GetWorkingArea(Me).Left OrElse
-       Me.Left >= Screen.GetWorkingArea(Me).Right Then
-      Me.Left = 100
+    If Me.Top < Screen.GetWorkingArea(Me).Top Or
+       Me.Top >= Screen.GetWorkingArea(Me).Bottom Then
+      Me.Top = 100
     End If
     LabelMain.TextAlign = ContentAlignment.MiddleRight
+
+    For i = 0 To ButtonY - 1
+      For j = 0 To ButtonX - 1
+        Dim k = i * ButtonX + j
+        Button(k) = New Button
+        Button(k).Text = Mid(ButtonText, k + 1, 1)
+        AddHandler Button(k).Click, AddressOf Button_Click
+        ToolStripContainer1.ContentPanel.Controls.Add(Button(k))
+      Next
+    Next
+    Form1_Resize(Me, e)
     Initialize()
   End Sub
+
+  Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+    If Not Button(0) Is Nothing Then SetControls
+  End Sub
+
+  Private Sub SetControls()
+    Dim clientWidth = ToolStripContainer1.ContentPanel.ClientSize.Width
+    Dim clientHeight = ToolStripContainer1.ContentPanel.ClientSize.Height
+    Dim margin = New Point(clientWidth \ 50, clientHeight \ 50)
+    LabelMain.Location = margin
+    LabelMain.Width = clientWidth - margin.X * 2
+    LabelMain.Height = (clientHeight - margin.Y) \ (ButtonY + 1)
+    Dim labelLow = LabelMain.Location.Y + LabelMain.Height
+    Dim buttonWidth = (clientWidth - margin.X) \ ButtonX - margin.X
+    Dim buttonHeight = (clientHeight - labelLow - margin.Y) \ ButtonY - margin.Y
+
+    For i = 0 To ButtonY - 1
+      For j = 0 To ButtonX - 1
+        Button(i * ButtonX + j).Size = New Size(buttonWidth, buttonHeight)
+        Button(i * ButtonX + j).Location = New Point(margin.X + (buttonWidth + margin.X) * j, margin.Y + labelLow + (buttonHeight + margin.Y) * i)
+      Next
+    Next
+  End Sub
+
 
   Private Sub Initialize()
     HiddenValue = 0
@@ -90,6 +126,7 @@
 
   Private Sub ToolStripMenuItemSettingShowMenu_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSettingShowMenu.Click
     ShowMenu = Not ShowMenu
+    Form1_Resize(Me, e)
   End Sub
 
   Private Sub ToolStripMenuItemHelpReadme_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemHelpReadme.Click
