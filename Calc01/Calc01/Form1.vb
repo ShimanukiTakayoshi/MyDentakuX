@@ -44,14 +44,18 @@
   Private Const ButtonX = 5
   Private Const ButtonY = 4
   Private Button(ButtonX * ButtonY - 1) As MyButton
+  Private ColorButtonBackPressed As Color
 
   Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     Me.Text = Application.ProductName
     Me.KeyPreview = True
     Me.MinimumSize = New Drawing.Size(260, 260)
     Me.Size = My.Settings.Size
+    Me.BackColor = My.Settings.ColorFormBack
     ShowMenu = My.Settings.ShowMenu
     LabelMain.Font = My.Settings.FontValue
+    LabelMain.BackColor = My.Settings.ColorValueBack
+    LabelMain.ForeColor = My.Settings.ColorValueFore
 
     If Me.Left < Screen.GetWorkingArea(Me).Left Or
        Me.Left >= Screen.GetWorkingArea(Me).Right Then
@@ -69,11 +73,24 @@
         Button(k) = New MyButton
         Button(k).Text = Mid(ButtonText, k + 1, 1)
         Button(k).Font = My.Settings.FontButton
+        Button(k).BackColor = My.Settings.ColorButtonBack
+        Button(k).ForeColor = My.Settings.ColorButtonFore
         AddHandler Button(k).Click, AddressOf Button_Click
         ToolStripContainer1.ContentPanel.Controls.Add(Button(k))
       Next
     Next
     Form1_Resize(Me, e)
+
+    If My.Settings.CustomColors <> "" Then
+      Dim customColorString() As String
+      customColorString = My.Settings.CustomColors.Split(vbTab)
+      Dim customColors(customColorString.GetUpperBound(0)) As Integer
+      For i = 0 To customColorString.GetUpperBound(0)
+        customColors(i) = Integer.Parse(customColorString(i))
+      Next
+      ColorDialog1.CustomColors = customColors
+    End If
+    ColorButtonBackPressed = My.Settings.ColorButtonBackPressed
     Initialize()
   End Sub
 
@@ -259,6 +276,20 @@
     My.Settings.Size = Me.Size
     My.Settings.FontValue = LabelMain.Font
     My.Settings.FontButton = Button(0).Font
+    My.Settings.ColorFormBack = Me.BackColor
+    My.Settings.ColorValueBack = LabelMain.BackColor
+    My.Settings.ColorValueFore = LabelMain.ForeColor
+    My.Settings.ColorButtonBack = Button(0).BackColor
+    My.Settings.ColorButtonFore = Button(0).ForeColor
+    My.Settings.ColorButtonBackPressed = ColorButtonBackPressed
+
+    Dim s As String = ""
+    For i = 0 To ColorDialog1.CustomColors.GetUpperBound(0)
+
+    Next
+
+
+
     With FontDialog1
       .AllowVerticalFonts = False
       .ScriptsOnly = True

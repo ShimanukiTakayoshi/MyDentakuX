@@ -113,6 +113,90 @@ Namespace My
                 Me("FontButton") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ControlLight")>  _
+        Public Property ColorFormBack() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("ColorFormBack"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("ColorFormBack") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ControlLightLight")>  _
+        Public Property ColorValueBack() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("ColorValueBack"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("ColorValueBack") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ControlText")>  _
+        Public Property ColorValueFore() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("ColorValueFore"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("ColorValueFore") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ControlLight")>  _
+        Public Property ColorButtonBack() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("ColorButtonBack"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("ColorButtonBack") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Cyan")>  _
+        Public Property ColorButtonBackPressed() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("ColorButtonBackPressed"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("ColorButtonBackPressed") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ControlText")>  _
+        Public Property ColorButtonFore() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("ColorButtonFore"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("ColorButtonFore") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property CustomColors() As String
+            Get
+                Return CType(Me("CustomColors"),String)
+            End Get
+            Set
+                Me("CustomColors") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

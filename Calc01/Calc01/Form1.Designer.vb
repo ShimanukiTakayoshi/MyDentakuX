@@ -37,6 +37,14 @@ Partial Class Form1
     Me.ToolStripMenuItemHelpVersion = New System.Windows.Forms.ToolStripMenuItem()
     Me.FontDialog1 = New System.Windows.Forms.FontDialog()
     Me.LabelMain = New Calc01.MyLabel()
+    Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+    Me.ToolStripMenuItemSettingColor = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingColorFromBack = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingColorValueBack = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingColorValueFore = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingColorButtonBack = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingColorButtonBackPressed = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingColorButtonFore = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripContainer1.ContentPanel.SuspendLayout()
     Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
     Me.ToolStripContainer1.SuspendLayout()
@@ -90,7 +98,7 @@ Partial Class Form1
     '
     'ToolStripMenuItemSetting
     '
-    Me.ToolStripMenuItemSetting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemSettingShowMenu, Me.ToolStripMenuItemSettingFont})
+    Me.ToolStripMenuItemSetting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemSettingShowMenu, Me.ToolStripMenuItemSettingFont, Me.ToolStripMenuItemSettingColor})
     Me.ToolStripMenuItemSetting.Name = "ToolStripMenuItemSetting"
     Me.ToolStripMenuItemSetting.Size = New System.Drawing.Size(57, 20)
     Me.ToolStripMenuItemSetting.Text = "設定(&S)"
@@ -111,13 +119,13 @@ Partial Class Form1
     'ToolStripMenuItemSettingFontValue
     '
     Me.ToolStripMenuItemSettingFontValue.Name = "ToolStripMenuItemSettingFontValue"
-    Me.ToolStripMenuItemSettingFontValue.Size = New System.Drawing.Size(152, 22)
+    Me.ToolStripMenuItemSettingFontValue.Size = New System.Drawing.Size(125, 22)
     Me.ToolStripMenuItemSettingFontValue.Text = "値表示(&V)"
     '
     'ToolStripMenuItemSettingFontButton
     '
     Me.ToolStripMenuItemSettingFontButton.Name = "ToolStripMenuItemSettingFontButton"
-    Me.ToolStripMenuItemSettingFontButton.Size = New System.Drawing.Size(152, 22)
+    Me.ToolStripMenuItemSettingFontButton.Size = New System.Drawing.Size(125, 22)
     Me.ToolStripMenuItemSettingFontButton.Text = "ボタン(&B)"
     '
     'ToolStripMenuItemHelp
@@ -148,10 +156,53 @@ Partial Class Form1
     'LabelMain
     '
     Me.LabelMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-    Me.LabelMain.Location = New System.Drawing.Point(42, 20)
+    Me.LabelMain.Location = New System.Drawing.Point(27, 16)
     Me.LabelMain.Name = "LabelMain"
-    Me.LabelMain.Size = New System.Drawing.Size(150, 150)
+    Me.LabelMain.Size = New System.Drawing.Size(206, 21)
     Me.LabelMain.TabIndex = 0
+    '
+    'ToolStripMenuItemSettingColor
+    '
+    Me.ToolStripMenuItemSettingColor.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemSettingColorFromBack, Me.ToolStripMenuItemSettingColorValueBack, Me.ToolStripMenuItemSettingColorValueFore, Me.ToolStripMenuItemSettingColorButtonBack, Me.ToolStripMenuItemSettingColorButtonBackPressed, Me.ToolStripMenuItemSettingColorButtonFore})
+    Me.ToolStripMenuItemSettingColor.Name = "ToolStripMenuItemSettingColor"
+    Me.ToolStripMenuItemSettingColor.Size = New System.Drawing.Size(190, 22)
+    Me.ToolStripMenuItemSettingColor.Text = "色(&C)"
+    '
+    'ToolStripMenuItemSettingColorFromBack
+    '
+    Me.ToolStripMenuItemSettingColorFromBack.Name = "ToolStripMenuItemSettingColorFromBack"
+    Me.ToolStripMenuItemSettingColorFromBack.Size = New System.Drawing.Size(205, 22)
+    Me.ToolStripMenuItemSettingColorFromBack.Text = "背景..."
+    '
+    'ToolStripMenuItemSettingColorValueBack
+    '
+    Me.ToolStripMenuItemSettingColorValueBack.Name = "ToolStripMenuItemSettingColorValueBack"
+    Me.ToolStripMenuItemSettingColorValueBack.Size = New System.Drawing.Size(205, 22)
+    Me.ToolStripMenuItemSettingColorValueBack.Text = "値の背景..."
+    '
+    'ToolStripMenuItemSettingColorValueFore
+    '
+    Me.ToolStripMenuItemSettingColorValueFore.Name = "ToolStripMenuItemSettingColorValueFore"
+    Me.ToolStripMenuItemSettingColorValueFore.Size = New System.Drawing.Size(205, 22)
+    Me.ToolStripMenuItemSettingColorValueFore.Text = "値の文字..."
+    '
+    'ToolStripMenuItemSettingColorButtonBack
+    '
+    Me.ToolStripMenuItemSettingColorButtonBack.Name = "ToolStripMenuItemSettingColorButtonBack"
+    Me.ToolStripMenuItemSettingColorButtonBack.Size = New System.Drawing.Size(205, 22)
+    Me.ToolStripMenuItemSettingColorButtonBack.Text = "ボタンの背景..."
+    '
+    'ToolStripMenuItemSettingColorButtonBackPressed
+    '
+    Me.ToolStripMenuItemSettingColorButtonBackPressed.Name = "ToolStripMenuItemSettingColorButtonBackPressed"
+    Me.ToolStripMenuItemSettingColorButtonBackPressed.Size = New System.Drawing.Size(205, 22)
+    Me.ToolStripMenuItemSettingColorButtonBackPressed.Text = "ボタンの背景(押された時)..."
+    '
+    'ToolStripMenuItemSettingColorButtonFore
+    '
+    Me.ToolStripMenuItemSettingColorButtonFore.Name = "ToolStripMenuItemSettingColorButtonFore"
+    Me.ToolStripMenuItemSettingColorButtonFore.Size = New System.Drawing.Size(205, 22)
+    Me.ToolStripMenuItemSettingColorButtonFore.Text = "ボタンの文字..."
     '
     'Form1
     '
@@ -188,4 +239,12 @@ Partial Class Form1
   Friend WithEvents ToolStripMenuItemSettingFontValue As ToolStripMenuItem
   Friend WithEvents ToolStripMenuItemSettingFontButton As ToolStripMenuItem
   Friend WithEvents LabelMain As MyLabel
+  Friend WithEvents ToolStripMenuItemSettingColor As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemSettingColorFromBack As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemSettingColorValueBack As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemSettingColorValueFore As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemSettingColorButtonBack As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemSettingColorButtonBackPressed As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemSettingColorButtonFore As ToolStripMenuItem
+  Friend WithEvents ColorDialog1 As ColorDialog
 End Class
