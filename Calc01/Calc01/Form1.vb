@@ -40,6 +40,8 @@
 
   Private IsNewValue As Boolean
   Private Memory As Double = 0
+  Private Const ButtonText = "789+C456-R123*M0±./="
+
 
   Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     Me.Text = Application.ProductName
@@ -131,7 +133,7 @@
     MessageBox.Show(s, "バージョン情報")
   End Sub
 
-  Private Overloads Sub Button_Click(sender As Object, e As EventArgs) 
+  Private Overloads Sub Button_Click(sender As Object, e As EventArgs)
     Button_Click(CType(sender, Button).Text)
   End Sub
 
