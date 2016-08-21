@@ -131,28 +131,33 @@
     MessageBox.Show(s, "バージョン情報")
   End Sub
 
-  Private Sub Button_Click(sender As Object, e As EventArgs) Handles Button7.Click, Button8.Click, ButtonSubtract.Click, ButtonRecall.Click, ButtonPlusMinus.Click, ButtonMultiply.Click, ButtonMemory.Click, ButtonEqual.Click, ButtonDot.Click, ButtonDivide.Click, ButtonClear.Click, ButtonAdd.Click, Button9.Click, Button6.Click, Button5.Click, Button4.Click, Button3.Click, Button2.Click, Button1.Click, Button0.Click
-    Dim c As Char = CType(sender, Button).Text
+  Private Overloads Sub Button_Click(sender As Object, e As EventArgs) Handles Button7.Click, Button8.Click, ButtonSubtract.Click, ButtonRecall.Click, ButtonPlusMinus.Click, ButtonMultiply.Click, ButtonMemory.Click, ButtonEqual.Click, ButtonDot.Click, ButtonDivide.Click, ButtonClear.Click, ButtonAdd.Click, Button9.Click, Button6.Click, Button5.Click, Button4.Click, Button3.Click, Button2.Click, Button1.Click, Button0.Click
+    Button_Click(CType(sender, Button).Text)
+  End Sub
+
+
+  Private Overloads Sub Button_Click(c As Char)
+    c = UCase(c)
     Select Case c
       Case "+"c
-        UpdateValues
+        UpDateValues()
         Operation = Operations.Add
       Case "-"c
-        UpdateValues
+        UpDateValues()
         Operation = Operations.Substract
       Case "*"c
-        UpdateValues
+        UpDateValues()
         Operation = Operations.Multiply
       Case "/"c
-        UpdateValues
+        UpDateValues()
         Operation = Operations.Divide
       Case "="c
         UpDateValues()
         Operation = Operations.None
       Case "C"c
         Initialize()
-        UpdateValues
-      Case "±"c
+        UpDateValues()
+      Case "±"c, "P"c
         If Not IsNewValue Then
           If LabelMain.Text.StartsWith("-") Then
             LabelMain.Text = Microsoft.VisualBasic.Right(LabelMain.Text, LabelMain.Text.Length - 1)
@@ -170,12 +175,17 @@
       Case "0"c To "9"c
         If IsNewValue Then LabelMain.Text = ""
         LabelMain.Text &= c
-        SetDisplayValueFromText
+        SetDisplayValueFromText()
         IsNewValue = False
       Case "M"c
         Memory = DisplayValue
       Case "R"c
         DisplayValue = Memory
+        IsNewValue = False
+      Case "B"c
+        LabelMain.Text = Microsoft.VisualBasic.Left(LabelMain.Text, LabelMain.Text.Length - 1)
+        If LabelMain.Text = "" Then LabelMain.Text = "0"
+        SetDisplayValueFromText()
         IsNewValue = False
     End Select
   End Sub
@@ -200,14 +210,36 @@
   End Sub
 
   Private Sub SetDisplayValueFromText()
-    DisplayValue = Double.Parse(LabelMain.Text)
+    Try
+      DisplayValue = Double.Parse(LabelMain.Text)
+    Catch ex As Exception
+      DisplayValue = 0
+    End Try
   End Sub
 
+  Private Sub Form1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MyBase.KeyPress
+    Button_Click(e.KeyChar)
+  End Sub
 
   Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
     Me.WindowState = FormWindowState.Normal
     My.Settings.Location = Me.Location
     My.Settings.Size = Me.Size
   End Sub
+
+  Protected Overrides Function ProcessDialogKey(keyData As Keys) As Boolean
+    Select Case keyData And Keys.KeyCode
+      Case Keys.Enter
+        Button_Click("="c)
+      Case Keys.Back
+        Button_Click("B"c)
+      Case Keys.Escape
+        Button_Click("C"c)
+      Case Else
+        Return MyBase.ProcessDialogKey(keyData)
+    End Select
+    Return True
+  End Function
+
 
 End Class
