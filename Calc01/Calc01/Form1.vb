@@ -131,7 +131,7 @@
     MessageBox.Show(s, "バージョン情報")
   End Sub
 
-  Private Overloads Sub Button_Click(sender As Object, e As EventArgs) Handles Button7.Click, Button8.Click, ButtonSubtract.Click, ButtonRecall.Click, ButtonPlusMinus.Click, ButtonMultiply.Click, ButtonMemory.Click, ButtonEqual.Click, ButtonDot.Click, ButtonDivide.Click, ButtonClear.Click, ButtonAdd.Click, Button9.Click, Button6.Click, Button5.Click, Button4.Click, Button3.Click, Button2.Click, Button1.Click, Button0.Click
+  Private Overloads Sub Button_Click(sender As Object, e As EventArgs) 
     Button_Click(CType(sender, Button).Text)
   End Sub
 
