@@ -23,26 +23,6 @@ Partial Class Form1
   <System.Diagnostics.DebuggerStepThrough()> _
   Private Sub InitializeComponent()
     Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
-    Me.ButtonEqual = New System.Windows.Forms.Button()
-    Me.ButtonDivide = New System.Windows.Forms.Button()
-    Me.ButtonDot = New System.Windows.Forms.Button()
-    Me.ButtonPlusMinus = New System.Windows.Forms.Button()
-    Me.Button0 = New System.Windows.Forms.Button()
-    Me.ButtonMemory = New System.Windows.Forms.Button()
-    Me.ButtonMultiply = New System.Windows.Forms.Button()
-    Me.Button3 = New System.Windows.Forms.Button()
-    Me.Button2 = New System.Windows.Forms.Button()
-    Me.Button1 = New System.Windows.Forms.Button()
-    Me.ButtonRecall = New System.Windows.Forms.Button()
-    Me.ButtonSubtract = New System.Windows.Forms.Button()
-    Me.Button6 = New System.Windows.Forms.Button()
-    Me.Button5 = New System.Windows.Forms.Button()
-    Me.Button4 = New System.Windows.Forms.Button()
-    Me.ButtonClear = New System.Windows.Forms.Button()
-    Me.ButtonAdd = New System.Windows.Forms.Button()
-    Me.Button9 = New System.Windows.Forms.Button()
-    Me.Button8 = New System.Windows.Forms.Button()
-    Me.Button7 = New System.Windows.Forms.Button()
     Me.LabelMain = New System.Windows.Forms.Label()
     Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
     Me.FToolStripMenuItemFile = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,26 +45,6 @@ Partial Class Form1
     '
     'ToolStripContainer1.ContentPanel
     '
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.ButtonEqual)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.ButtonDivide)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.ButtonDot)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.ButtonPlusMinus)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.Button0)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.ButtonMemory)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.ButtonMultiply)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.Button3)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.Button2)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.Button1)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.ButtonRecall)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.ButtonSubtract)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.Button6)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.Button5)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.Button4)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.ButtonClear)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.ButtonAdd)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.Button9)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.Button8)
-    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.Button7)
     Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.LabelMain)
     Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(284, 237)
     Me.ToolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -99,186 +59,6 @@ Partial Class Form1
     'ToolStripContainer1.TopToolStripPanel
     '
     Me.ToolStripContainer1.TopToolStripPanel.Controls.Add(Me.MenuStrip1)
-    '
-    'ButtonEqual
-    '
-    Me.ButtonEqual.Location = New System.Drawing.Point(218, 165)
-    Me.ButtonEqual.Name = "ButtonEqual"
-    Me.ButtonEqual.Size = New System.Drawing.Size(43, 32)
-    Me.ButtonEqual.TabIndex = 20
-    Me.ButtonEqual.Text = "="
-    Me.ButtonEqual.UseVisualStyleBackColor = True
-    '
-    'ButtonDivide
-    '
-    Me.ButtonDivide.Location = New System.Drawing.Point(169, 165)
-    Me.ButtonDivide.Name = "ButtonDivide"
-    Me.ButtonDivide.Size = New System.Drawing.Size(43, 32)
-    Me.ButtonDivide.TabIndex = 19
-    Me.ButtonDivide.Text = "/"
-    Me.ButtonDivide.UseVisualStyleBackColor = True
-    '
-    'ButtonDot
-    '
-    Me.ButtonDot.Location = New System.Drawing.Point(120, 165)
-    Me.ButtonDot.Name = "ButtonDot"
-    Me.ButtonDot.Size = New System.Drawing.Size(43, 32)
-    Me.ButtonDot.TabIndex = 18
-    Me.ButtonDot.Text = "."
-    Me.ButtonDot.UseVisualStyleBackColor = True
-    '
-    'ButtonPlusMinus
-    '
-    Me.ButtonPlusMinus.Location = New System.Drawing.Point(71, 165)
-    Me.ButtonPlusMinus.Name = "ButtonPlusMinus"
-    Me.ButtonPlusMinus.Size = New System.Drawing.Size(43, 32)
-    Me.ButtonPlusMinus.TabIndex = 17
-    Me.ButtonPlusMinus.Text = "±"
-    Me.ButtonPlusMinus.UseVisualStyleBackColor = True
-    '
-    'Button0
-    '
-    Me.Button0.Location = New System.Drawing.Point(22, 165)
-    Me.Button0.Name = "Button0"
-    Me.Button0.Size = New System.Drawing.Size(43, 32)
-    Me.Button0.TabIndex = 16
-    Me.Button0.Text = "0"
-    Me.Button0.UseVisualStyleBackColor = True
-    '
-    'ButtonMemory
-    '
-    Me.ButtonMemory.Location = New System.Drawing.Point(218, 127)
-    Me.ButtonMemory.Name = "ButtonMemory"
-    Me.ButtonMemory.Size = New System.Drawing.Size(43, 32)
-    Me.ButtonMemory.TabIndex = 15
-    Me.ButtonMemory.Text = "M"
-    Me.ButtonMemory.UseVisualStyleBackColor = True
-    '
-    'ButtonMultiply
-    '
-    Me.ButtonMultiply.Location = New System.Drawing.Point(169, 127)
-    Me.ButtonMultiply.Name = "ButtonMultiply"
-    Me.ButtonMultiply.Size = New System.Drawing.Size(43, 32)
-    Me.ButtonMultiply.TabIndex = 14
-    Me.ButtonMultiply.Text = "*"
-    Me.ButtonMultiply.UseVisualStyleBackColor = True
-    '
-    'Button3
-    '
-    Me.Button3.Location = New System.Drawing.Point(120, 127)
-    Me.Button3.Name = "Button3"
-    Me.Button3.Size = New System.Drawing.Size(43, 32)
-    Me.Button3.TabIndex = 13
-    Me.Button3.Text = "3"
-    Me.Button3.UseVisualStyleBackColor = True
-    '
-    'Button2
-    '
-    Me.Button2.Location = New System.Drawing.Point(71, 127)
-    Me.Button2.Name = "Button2"
-    Me.Button2.Size = New System.Drawing.Size(43, 32)
-    Me.Button2.TabIndex = 12
-    Me.Button2.Text = "2"
-    Me.Button2.UseVisualStyleBackColor = True
-    '
-    'Button1
-    '
-    Me.Button1.Location = New System.Drawing.Point(23, 127)
-    Me.Button1.Name = "Button1"
-    Me.Button1.Size = New System.Drawing.Size(43, 32)
-    Me.Button1.TabIndex = 11
-    Me.Button1.Text = "1"
-    Me.Button1.UseVisualStyleBackColor = True
-    '
-    'ButtonRecall
-    '
-    Me.ButtonRecall.Location = New System.Drawing.Point(218, 89)
-    Me.ButtonRecall.Name = "ButtonRecall"
-    Me.ButtonRecall.Size = New System.Drawing.Size(43, 32)
-    Me.ButtonRecall.TabIndex = 10
-    Me.ButtonRecall.Text = "R"
-    Me.ButtonRecall.UseVisualStyleBackColor = True
-    '
-    'ButtonSubtract
-    '
-    Me.ButtonSubtract.Location = New System.Drawing.Point(169, 89)
-    Me.ButtonSubtract.Name = "ButtonSubtract"
-    Me.ButtonSubtract.Size = New System.Drawing.Size(43, 32)
-    Me.ButtonSubtract.TabIndex = 9
-    Me.ButtonSubtract.Text = "-"
-    Me.ButtonSubtract.UseVisualStyleBackColor = True
-    '
-    'Button6
-    '
-    Me.Button6.Location = New System.Drawing.Point(120, 89)
-    Me.Button6.Name = "Button6"
-    Me.Button6.Size = New System.Drawing.Size(43, 32)
-    Me.Button6.TabIndex = 8
-    Me.Button6.Text = "6"
-    Me.Button6.UseVisualStyleBackColor = True
-    '
-    'Button5
-    '
-    Me.Button5.Location = New System.Drawing.Point(71, 89)
-    Me.Button5.Name = "Button5"
-    Me.Button5.Size = New System.Drawing.Size(43, 32)
-    Me.Button5.TabIndex = 7
-    Me.Button5.Text = "5"
-    Me.Button5.UseVisualStyleBackColor = True
-    '
-    'Button4
-    '
-    Me.Button4.Location = New System.Drawing.Point(22, 89)
-    Me.Button4.Name = "Button4"
-    Me.Button4.Size = New System.Drawing.Size(43, 32)
-    Me.Button4.TabIndex = 6
-    Me.Button4.Text = "4"
-    Me.Button4.UseVisualStyleBackColor = True
-    '
-    'ButtonClear
-    '
-    Me.ButtonClear.Location = New System.Drawing.Point(218, 51)
-    Me.ButtonClear.Name = "ButtonClear"
-    Me.ButtonClear.Size = New System.Drawing.Size(43, 32)
-    Me.ButtonClear.TabIndex = 5
-    Me.ButtonClear.Text = "C"
-    Me.ButtonClear.UseVisualStyleBackColor = True
-    '
-    'ButtonAdd
-    '
-    Me.ButtonAdd.Location = New System.Drawing.Point(169, 51)
-    Me.ButtonAdd.Name = "ButtonAdd"
-    Me.ButtonAdd.Size = New System.Drawing.Size(43, 32)
-    Me.ButtonAdd.TabIndex = 4
-    Me.ButtonAdd.Text = "+"
-    Me.ButtonAdd.UseVisualStyleBackColor = True
-    '
-    'Button9
-    '
-    Me.Button9.Location = New System.Drawing.Point(120, 51)
-    Me.Button9.Name = "Button9"
-    Me.Button9.Size = New System.Drawing.Size(43, 32)
-    Me.Button9.TabIndex = 3
-    Me.Button9.Text = "9"
-    Me.Button9.UseVisualStyleBackColor = True
-    '
-    'Button8
-    '
-    Me.Button8.Location = New System.Drawing.Point(71, 51)
-    Me.Button8.Name = "Button8"
-    Me.Button8.Size = New System.Drawing.Size(43, 32)
-    Me.Button8.TabIndex = 2
-    Me.Button8.Text = "8"
-    Me.Button8.UseVisualStyleBackColor = True
-    '
-    'Button7
-    '
-    Me.Button7.Location = New System.Drawing.Point(22, 51)
-    Me.Button7.Name = "Button7"
-    Me.Button7.Size = New System.Drawing.Size(43, 32)
-    Me.Button7.TabIndex = 1
-    Me.Button7.Text = "7"
-    Me.Button7.UseVisualStyleBackColor = True
     '
     'LabelMain
     '
@@ -382,25 +162,5 @@ Partial Class Form1
   Friend WithEvents ToolStripMenuItemHelpReadme As ToolStripMenuItem
   Friend WithEvents ToolStripMenuItemHelpWeb As ToolStripMenuItem
   Friend WithEvents ToolStripMenuItemHelpVersion As ToolStripMenuItem
-  Friend WithEvents ButtonEqual As Button
-  Friend WithEvents ButtonDivide As Button
-  Friend WithEvents ButtonDot As Button
-  Friend WithEvents ButtonPlusMinus As Button
-  Friend WithEvents Button0 As Button
-  Friend WithEvents ButtonMemory As Button
-  Friend WithEvents ButtonMultiply As Button
-  Friend WithEvents Button3 As Button
-  Friend WithEvents Button2 As Button
-  Friend WithEvents Button1 As Button
-  Friend WithEvents ButtonRecall As Button
-  Friend WithEvents ButtonSubtract As Button
-  Friend WithEvents Button6 As Button
-  Friend WithEvents Button5 As Button
-  Friend WithEvents Button4 As Button
-  Friend WithEvents ButtonClear As Button
-  Friend WithEvents ButtonAdd As Button
-  Friend WithEvents Button9 As Button
-  Friend WithEvents Button8 As Button
-  Friend WithEvents Button7 As Button
   Friend WithEvents LabelMain As Label
 End Class
