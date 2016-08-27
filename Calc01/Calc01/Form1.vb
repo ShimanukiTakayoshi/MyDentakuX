@@ -310,7 +310,6 @@
 
     Dim s As String = ""
     For i = 0 To ColorDialog1.CustomColors.GetUpperBound(0)
-      GetUpperBound(0)
       s &= ColorDialog1.CustomColors(i)
       If i < ColorDialog1.CustomColors.GetUpperBound(0) Then
         s &= vbTab
@@ -340,6 +339,27 @@
     For i = 0 To ButtonX * ButtonY - 1
       Button(i).Font = f
     Next
+  End Sub
+
+  Private Sub ToolStripMenuItemEdit_DropDownOpening(sender As Object, e As EventArgs) Handles ToolStripMenuItemEdit.DropDownOpening
+    ToolStripMenuItemEditPaste.Enabled =
+      My.Computer.Clipboard.ContainsText AndAlso
+      My.Computer.Clipboard.GetText() <> ""
+  End Sub
+
+  Private Sub ToolStripMenuItemEditCopy_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemEditCopy.Click
+    My.Computer.Clipboard.SetText(LabelMain.Text)
+  End Sub
+
+  Private Sub ToolStripMenuItemEditPaste_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemEditPaste.Click
+    Dim s = My.Computer.Clipboard.GetText
+    s = StrConv(s, VbStrConv.Narrow)
+    Try
+      Dim d = Double.Parse(s)
+      LabelMain.Text = Str(d)
+    Catch ex As Exception
+      MessageBox.Show("｢" & s & "｣は数値ではありません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    End Try
   End Sub
 
   Protected Overrides Function ProcessDialogKey(keyData As Keys) As Boolean

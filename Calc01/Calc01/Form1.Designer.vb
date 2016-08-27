@@ -23,21 +23,18 @@ Partial Class Form1
   <System.Diagnostics.DebuggerStepThrough()> _
   Private Sub InitializeComponent()
     Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
+    Me.LabelMain = New Calc01.MyLabel()
     Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
     Me.FToolStripMenuItemFile = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemFileExit = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemEdit = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemEditCopy = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemEditPaste = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemSetting = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemSettingShowMenu = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemSettingFont = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemSettingFontValue = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemSettingFontButton = New System.Windows.Forms.ToolStripMenuItem()
-    Me.ToolStripMenuItemHelp = New System.Windows.Forms.ToolStripMenuItem()
-    Me.ToolStripMenuItemHelpReadme = New System.Windows.Forms.ToolStripMenuItem()
-    Me.ToolStripMenuItemHelpWeb = New System.Windows.Forms.ToolStripMenuItem()
-    Me.ToolStripMenuItemHelpVersion = New System.Windows.Forms.ToolStripMenuItem()
-    Me.FontDialog1 = New System.Windows.Forms.FontDialog()
-    Me.LabelMain = New Calc01.MyLabel()
-    Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
     Me.ToolStripMenuItemSettingColor = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemSettingColorFromBack = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemSettingColorValueBack = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,6 +42,12 @@ Partial Class Form1
     Me.ToolStripMenuItemSettingColorButtonBack = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemSettingColorButtonBackPressed = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemSettingColorButtonFore = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemHelp = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemHelpReadme = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemHelpWeb = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemHelpVersion = New System.Windows.Forms.ToolStripMenuItem()
+    Me.FontDialog1 = New System.Windows.Forms.FontDialog()
+    Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
     Me.ToolStripContainer1.ContentPanel.SuspendLayout()
     Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
     Me.ToolStripContainer1.SuspendLayout()
@@ -72,10 +75,18 @@ Partial Class Form1
     '
     Me.ToolStripContainer1.TopToolStripPanel.Controls.Add(Me.MenuStrip1)
     '
+    'LabelMain
+    '
+    Me.LabelMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+    Me.LabelMain.Location = New System.Drawing.Point(27, 16)
+    Me.LabelMain.Name = "LabelMain"
+    Me.LabelMain.Size = New System.Drawing.Size(206, 21)
+    Me.LabelMain.TabIndex = 0
+    '
     'MenuStrip1
     '
     Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
-    Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FToolStripMenuItemFile, Me.ToolStripMenuItemSetting, Me.ToolStripMenuItemHelp})
+    Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FToolStripMenuItemFile, Me.ToolStripMenuItemEdit, Me.ToolStripMenuItemSetting, Me.ToolStripMenuItemHelp})
     Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
     Me.MenuStrip1.Name = "MenuStrip1"
     Me.MenuStrip1.Size = New System.Drawing.Size(284, 24)
@@ -95,6 +106,27 @@ Partial Class Form1
     Me.ToolStripMenuItemFileExit.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
     Me.ToolStripMenuItemFileExit.Size = New System.Drawing.Size(155, 22)
     Me.ToolStripMenuItemFileExit.Text = "終了(&X)"
+    '
+    'ToolStripMenuItemEdit
+    '
+    Me.ToolStripMenuItemEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemEditCopy, Me.ToolStripMenuItemEditPaste})
+    Me.ToolStripMenuItemEdit.Name = "ToolStripMenuItemEdit"
+    Me.ToolStripMenuItemEdit.Size = New System.Drawing.Size(57, 20)
+    Me.ToolStripMenuItemEdit.Text = "編集(&E)"
+    '
+    'ToolStripMenuItemEditCopy
+    '
+    Me.ToolStripMenuItemEditCopy.Name = "ToolStripMenuItemEditCopy"
+    Me.ToolStripMenuItemEditCopy.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+    Me.ToolStripMenuItemEditCopy.Size = New System.Drawing.Size(170, 22)
+    Me.ToolStripMenuItemEditCopy.Text = "コピー(&C)"
+    '
+    'ToolStripMenuItemEditPaste
+    '
+    Me.ToolStripMenuItemEditPaste.Name = "ToolStripMenuItemEditPaste"
+    Me.ToolStripMenuItemEditPaste.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
+    Me.ToolStripMenuItemEditPaste.Size = New System.Drawing.Size(170, 22)
+    Me.ToolStripMenuItemEditPaste.Text = "貼り付け(&Y)"
     '
     'ToolStripMenuItemSetting
     '
@@ -127,39 +159,6 @@ Partial Class Form1
     Me.ToolStripMenuItemSettingFontButton.Name = "ToolStripMenuItemSettingFontButton"
     Me.ToolStripMenuItemSettingFontButton.Size = New System.Drawing.Size(125, 22)
     Me.ToolStripMenuItemSettingFontButton.Text = "ボタン(&B)"
-    '
-    'ToolStripMenuItemHelp
-    '
-    Me.ToolStripMenuItemHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemHelpReadme, Me.ToolStripMenuItemHelpWeb, Me.ToolStripMenuItemHelpVersion})
-    Me.ToolStripMenuItemHelp.Name = "ToolStripMenuItemHelp"
-    Me.ToolStripMenuItemHelp.Size = New System.Drawing.Size(65, 20)
-    Me.ToolStripMenuItemHelp.Text = "ヘルプ(&H)"
-    '
-    'ToolStripMenuItemHelpReadme
-    '
-    Me.ToolStripMenuItemHelpReadme.Name = "ToolStripMenuItemHelpReadme"
-    Me.ToolStripMenuItemHelpReadme.Size = New System.Drawing.Size(182, 22)
-    Me.ToolStripMenuItemHelpReadme.Text = "ReadMe.txtを表示(&R)"
-    '
-    'ToolStripMenuItemHelpWeb
-    '
-    Me.ToolStripMenuItemHelpWeb.Name = "ToolStripMenuItemHelpWeb"
-    Me.ToolStripMenuItemHelpWeb.Size = New System.Drawing.Size(182, 22)
-    Me.ToolStripMenuItemHelpWeb.Text = "Webサイトを表示(&W)"
-    '
-    'ToolStripMenuItemHelpVersion
-    '
-    Me.ToolStripMenuItemHelpVersion.Name = "ToolStripMenuItemHelpVersion"
-    Me.ToolStripMenuItemHelpVersion.Size = New System.Drawing.Size(182, 22)
-    Me.ToolStripMenuItemHelpVersion.Text = "バージョン情報(&V)"
-    '
-    'LabelMain
-    '
-    Me.LabelMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-    Me.LabelMain.Location = New System.Drawing.Point(27, 16)
-    Me.LabelMain.Name = "LabelMain"
-    Me.LabelMain.Size = New System.Drawing.Size(206, 21)
-    Me.LabelMain.TabIndex = 0
     '
     'ToolStripMenuItemSettingColor
     '
@@ -204,6 +203,31 @@ Partial Class Form1
     Me.ToolStripMenuItemSettingColorButtonFore.Size = New System.Drawing.Size(205, 22)
     Me.ToolStripMenuItemSettingColorButtonFore.Text = "ボタンの文字..."
     '
+    'ToolStripMenuItemHelp
+    '
+    Me.ToolStripMenuItemHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemHelpReadme, Me.ToolStripMenuItemHelpWeb, Me.ToolStripMenuItemHelpVersion})
+    Me.ToolStripMenuItemHelp.Name = "ToolStripMenuItemHelp"
+    Me.ToolStripMenuItemHelp.Size = New System.Drawing.Size(65, 20)
+    Me.ToolStripMenuItemHelp.Text = "ヘルプ(&H)"
+    '
+    'ToolStripMenuItemHelpReadme
+    '
+    Me.ToolStripMenuItemHelpReadme.Name = "ToolStripMenuItemHelpReadme"
+    Me.ToolStripMenuItemHelpReadme.Size = New System.Drawing.Size(182, 22)
+    Me.ToolStripMenuItemHelpReadme.Text = "ReadMe.txtを表示(&R)"
+    '
+    'ToolStripMenuItemHelpWeb
+    '
+    Me.ToolStripMenuItemHelpWeb.Name = "ToolStripMenuItemHelpWeb"
+    Me.ToolStripMenuItemHelpWeb.Size = New System.Drawing.Size(182, 22)
+    Me.ToolStripMenuItemHelpWeb.Text = "Webサイトを表示(&W)"
+    '
+    'ToolStripMenuItemHelpVersion
+    '
+    Me.ToolStripMenuItemHelpVersion.Name = "ToolStripMenuItemHelpVersion"
+    Me.ToolStripMenuItemHelpVersion.Size = New System.Drawing.Size(182, 22)
+    Me.ToolStripMenuItemHelpVersion.Text = "バージョン情報(&V)"
+    '
     'Form1
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -247,4 +271,7 @@ Partial Class Form1
   Friend WithEvents ToolStripMenuItemSettingColorButtonBackPressed As ToolStripMenuItem
   Friend WithEvents ToolStripMenuItemSettingColorButtonFore As ToolStripMenuItem
   Friend WithEvents ColorDialog1 As ColorDialog
+  Friend WithEvents ToolStripMenuItemEdit As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemEditCopy As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemEditPaste As ToolStripMenuItem
 End Class
