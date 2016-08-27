@@ -187,6 +187,10 @@
 
   Private Overloads Sub Button_Click(c As Char)
     c = UCase(c)
+    If c = "P"c Then c = "±"c
+    ButtonBlink(c, True)
+    Me.Refresh()
+
     Select Case c
       Case "+"c
         UpDateValues()
@@ -237,7 +241,28 @@
         SetDisplayValueFromText()
         IsNewValue = False
     End Select
+
+    Threading.Thread.Sleep(50)
+    ButtonBlink(c, False)
   End Sub
+
+  Private Sub ButtonBlink(c As Char, active As Boolean)
+    Dim i = InStr(ButtonText, c) - 1
+    If i >= Button.GetLowerBound(0) AndAlso i <= Button.GetUpperBound(0) Then
+      If active Then
+        Button(i).BackColor = ColorButtonBackPressed
+      Else
+        If i + 1 > Button.GetUpperBound(0) Then
+          Button(i).BackColor = Button(i - 1).BackColor
+        Else
+          Button(i).BackColor = Button(i + 1).BackColor
+        End If
+      End If
+    End If
+  End Sub
+
+
+
 
   Private Sub UpDateValues()
     If Not IsNewValue Then
@@ -285,10 +310,13 @@
 
     Dim s As String = ""
     For i = 0 To ColorDialog1.CustomColors.GetUpperBound(0)
-
+      GetUpperBound(0)
+      s &= ColorDialog1.CustomColors(i)
+      If i < ColorDialog1.CustomColors.GetUpperBound(0) Then
+        s &= vbTab
+      End If
     Next
-
-
+    My.Settings.CustomColors = s
 
     With FontDialog1
       .AllowVerticalFonts = False
@@ -327,6 +355,9 @@
     End Select
     Return True
   End Function
+
+
+
 
 
 End Class
