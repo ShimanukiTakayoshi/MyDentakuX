@@ -261,9 +261,6 @@
     End If
   End Sub
 
-
-
-
   Private Sub UpDateValues()
     If Not IsNewValue Then
       Select Case Operation
@@ -375,9 +372,5 @@
     End Select
     Return True
   End Function
-
-
-
-
 
 End Class
